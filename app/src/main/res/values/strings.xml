@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AplicacoesSimples</string>
+    <string name="btnDizOla">Diz Olá</string>
 </resources>
