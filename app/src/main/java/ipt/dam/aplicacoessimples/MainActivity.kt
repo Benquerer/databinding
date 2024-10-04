@@ -7,15 +7,22 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import ipt.dam.aplicacoessimples.databinding.ActivityMainBinding
 
 const val TXT_VALUE = "TXT_VALUE"
 const val EXTRA_MESSAGE = "MESSAGE1"
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.txtDizOla = "Ola Mundo!"
+
         var btnOla: Button = findViewById(R.id.btnDizOla)
         btnOla.setOnClickListener {
             dizOla()
@@ -29,8 +36,9 @@ class MainActivity : AppCompatActivity() {
 
     fun dizOla() {
         Log.d("Atenção:", "Vou dizer Olá")
-        val txtOla: TextView = findViewById(R.id.txtOla)
-        txtOla.text = "Ola Mundo"
+        //val txtOla: TextView = findViewById(R.id.txtOla)
+        //txtOla.text = "Ola Mundo"
+        binding.txtDizOla += " Ola Mundo!"
     }
 
     fun muda() {
