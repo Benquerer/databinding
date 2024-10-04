@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.txtDizOla = "Ola Mundo!"
+        binding.data = MyBinding("Ola Mundo!")
 
         var btnOla: Button = findViewById(R.id.btnDizOla)
         btnOla.setOnClickListener {
@@ -38,7 +38,8 @@ class MainActivity : AppCompatActivity() {
         Log.d("Atenção:", "Vou dizer Olá")
         //val txtOla: TextView = findViewById(R.id.txtOla)
         //txtOla.text = "Ola Mundo"
-        binding.txtDizOla += " Ola Mundo!"
+        binding.data?.txtDizOla += " Ola Mundo!"
+        binding.invalidateAll()
     }
 
     fun muda() {
